@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1290</width>
+    <height>830</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Raman Manager</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_8">
+    <item>
+     <widget class="QCustomPlot" name="specPlot" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>138</width>
+          <height>66</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QCheckBox" name="zeroBox">
+            <property name="text">
+             <string>Subtract offset</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="subGSBox">
+            <property name="text">
+             <string>Subtract GS</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="zeroSpinBox">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string>Temporal value up to which the offset is calculated</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="minimum">
+           <double>-1000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="value">
+           <double>-0.500000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line_7">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="refBox">
+          <property name="text">
+           <string>Subtract REF</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSolventBox" name="solvBox" native="true">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QCheckBox" name="convoBox">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Convolve</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QDoubleSpinBox" name="convoSpinBox">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string>Temporal value up to which the offset is calculated</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="minimum">
+           <double>1.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.500000000000000</double>
+          </property>
+          <property name="value">
+           <double>1.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QCheckBox" name="smoothBox">
+          <property name="toolTip">
+           <string>Apply a Savitzky-Golay filter to smooth out the spectral noise</string>
+          </property>
+          <property name="text">
+           <string>Smooth</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QSpinBox" name="windowSpinBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Savitzky-Golay window size</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="value">
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="degSpinBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Savitzky-Golay polynomial degree</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>2</number>
+            </property>
+            <property name="value">
+             <number>4</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QCheckBox" name="isolateFSRSBox">
+          <property name="text">
+           <string>Isolate FSRS</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="isolateGSBox">
+          <property name="text">
+           <string>Isolate GS</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QCheckBox" name="splineFSRSBox">
+          <property name="text">
+           <string>Spline FSRS</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="splineGSBox">
+          <property name="text">
+           <string>Spline GS</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line_5">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Every nth:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="isoBox">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string>Every nth point in the peak-enveloping baseline</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Poly deg.:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QSpinBox" name="polyBox">
+          <property name="toolTip">
+           <string>Polynomial order</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="value">
+           <number>4</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line_6">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QRadioButton" name="logButton">
+          <property name="text">
+           <string>Log</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="linButton">
+          <property name="text">
+           <string>Lin</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QPushButton" name="clearButton">
+          <property name="text">
+           <string>Clear FSRS</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="clearGSButton">
+          <property name="text">
+           <string>Clear GS</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QSlider" name="delaySlider">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="delayLabel">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1290</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_PDP_Dataset"/>
+    <addaction name="actionOpen_Raw_WL_File"/>
+    <addaction name="actionSave_Raw_WL_File"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpen_PP_Dataset"/>
+    <addaction name="actionOpen_Common_PP_File"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_Difference_File"/>
+    <addaction name="actionSave_Averaged_GS_Spectrum"/>
+    <addaction name="actionSave_On_Screen_Data"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpen_Temporally_Shifted_FSRS"/>
+    <addaction name="actionOpen_Spectrally_Shifted_FSRS"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionCorrect_Dispersion"/>
+    <addaction name="actionRemove_Region"/>
+    <addaction name="separator"/>
+    <addaction name="actionInvert_Signals"/>
+    <addaction name="actionReverse_Wavenumber"/>
+    <addaction name="actionInvert_Probetime"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_Gaussian_Weights"/>
+    <addaction name="separator"/>
+    <addaction name="actionScale_Wavenumber"/>
+    <addaction name="actionCalibrate_wavenumber"/>
+   </widget>
+   <widget class="QMenu" name="menuPreview">
+    <property name="title">
+     <string>Preview</string>
+    </property>
+    <addaction name="actionPreview_FSRS_Spectrum"/>
+    <addaction name="actionPreview_GS_FSRS_Spectrum"/>
+    <addaction name="actionPreview_Difference_Spectrum"/>
+    <addaction name="separator"/>
+    <addaction name="actionFit_FSRS_Spectrum"/>
+    <addaction name="separator"/>
+    <addaction name="actionPreview_PP_Spectrum"/>
+    <addaction name="actionPreview_DP_Spectrum"/>
+    <addaction name="actionPreview_PDP_Spectrum"/>
+   </widget>
+   <widget class="QMenu" name="menuConfigs">
+    <property name="title">
+     <string>Configs</string>
+    </property>
+    <addaction name="actionLoad_Configs"/>
+    <addaction name="actionSave_Configs"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuPreview"/>
+   <addaction name="menuConfigs"/>
+  </widget>
+  <action name="actionOpen_PDP_Dataset">
+   <property name="text">
+    <string>Open PDP dataset</string>
+   </property>
+  </action>
+  <action name="actionSave_Raw_WL_File">
+   <property name="text">
+    <string>Save Raw WL File</string>
+   </property>
+  </action>
+  <action name="actionOpen_Raw_WL_File">
+   <property name="text">
+    <string>Open Raw WL File</string>
+   </property>
+  </action>
+  <action name="actionSave_Difference_File">
+   <property name="text">
+    <string>Save Difference File</string>
+   </property>
+  </action>
+  <action name="actionInvert_Signals">
+   <property name="text">
+    <string>Invert Signals</string>
+   </property>
+  </action>
+  <action name="actionReverse_Wavenumber">
+   <property name="text">
+    <string>Reverse Wavenumber</string>
+   </property>
+  </action>
+  <action name="actionOpen_PP_Dataset">
+   <property name="text">
+    <string>Open PP Dataset</string>
+   </property>
+  </action>
+  <action name="actionOpen_Common_PP_File">
+   <property name="text">
+    <string>Open Common PP File</string>
+   </property>
+  </action>
+  <action name="actionCalibrate_wavenumber">
+   <property name="text">
+    <string>Calibrate Wavenumber</string>
+   </property>
+  </action>
+  <action name="actionScale_Wavenumber">
+   <property name="text">
+    <string>Scale Wavenumber</string>
+   </property>
+  </action>
+  <action name="actionSave_Averaged_GS_Spectrum">
+   <property name="text">
+    <string>Save Averaged GS Spectrum</string>
+   </property>
+  </action>
+  <action name="actionCorrect_Dispersion">
+   <property name="text">
+    <string>Correct Dispersion</string>
+   </property>
+  </action>
+  <action name="actionPreview_FSRS_Spectrum">
+   <property name="text">
+    <string>Preview FSRS Spectrum</string>
+   </property>
+  </action>
+  <action name="actionRemove_Region">
+   <property name="text">
+    <string>Remove Region</string>
+   </property>
+  </action>
+  <action name="actionPreview_GS_FSRS_Spectrum">
+   <property name="text">
+    <string>Preview GS FSRS Spectrum</string>
+   </property>
+  </action>
+  <action name="actionInvert_Probetime">
+   <property name="text">
+    <string>Invert Probetime</string>
+   </property>
+  </action>
+  <action name="actionPreview_PP_Spectrum">
+   <property name="text">
+    <string>Preview PP Spectrum</string>
+   </property>
+  </action>
+  <action name="actionPreview_DP_Spectrum">
+   <property name="text">
+    <string>Preview DP Spectrum</string>
+   </property>
+  </action>
+  <action name="actionPreview_PDP_Spectrum">
+   <property name="text">
+    <string>Preview PDP Spectrum</string>
+   </property>
+  </action>
+  <action name="actionSave_Configs">
+   <property name="text">
+    <string>Save Configs</string>
+   </property>
+  </action>
+  <action name="actionLoad_Configs">
+   <property name="text">
+    <string>Load Configs</string>
+   </property>
+  </action>
+  <action name="actionFit_FSRS_Spectrum">
+   <property name="text">
+    <string>Fit FSRS Spectrum</string>
+   </property>
+  </action>
+  <action name="actionAdd_Gaussian_Weights">
+   <property name="text">
+    <string>Add Gaussian Weights</string>
+   </property>
+  </action>
+  <action name="actionSave_On_Screen_Data">
+   <property name="text">
+    <string>Save On-Screen Data</string>
+   </property>
+  </action>
+  <action name="actionOpen_Temporally_Shifted_FSRS">
+   <property name="text">
+    <string>Open Temporally Shifted FSRS</string>
+   </property>
+  </action>
+  <action name="actionOpen_Spectrally_Shifted_FSRS">
+   <property name="text">
+    <string>Open Spectrally Shifted FSRS</string>
+   </property>
+  </action>
+  <action name="actionPreview_Difference_Spectrum">
+   <property name="text">
+    <string>Preview Difference Spectrum</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QSolventBox</class>
+   <extends>QWidget</extends>
+   <header>qsolventbox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

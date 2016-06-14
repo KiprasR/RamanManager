@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/GS_Spectra">
+        <file>Acetonitrile.txt</file>
+        <file>TestSpec.txt</file>
+        <file>Methanol.txt</file>
+        <file>Toluene.txt</file>
+        <file>Chloroform.txt</file>
+        <file>THF.txt</file>
+        <file>N-Hexane.txt</file>
+        <file>Acetone.txt</file>
+    </qresource>
+</RCC>
